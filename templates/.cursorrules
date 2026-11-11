@@ -1,0 +1,7 @@
+# Cursor Rules — CIPO.DEV
+
+All Cursor agents and background composers must strictly adhere to the project standards defined in the repository:
+
+1. Read `AGENTS.md` before executing any major task or changing project state.
+2. Apply the engineering principles defined in `_system/rules/cipo-dev.md` (C.I.P.O. - Pragmatic Senior Full-Stack Engineer).
+3. Follow the governance rules in `_system/rules/cipo-method.md` (PRD first, 3-tier memory: `_system/memory/`, `MEMORY.md`, `STATUS.md`).

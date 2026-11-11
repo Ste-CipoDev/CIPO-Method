@@ -1,0 +1,9 @@
+# Aider Configuration for CIPO.DEV Workspace
+# Ensures governance and rule files are loaded read-only into every session
+
+read:
+  - AGENTS.md
+  - _system/rules/cipo-dev.md
+  - _system/rules/cipo-method.md
+
+commit-prompt: "All commit messages must be strictly in Italian following Conventional Commits format (e.g. feat: aggiunta transazione atomica)."

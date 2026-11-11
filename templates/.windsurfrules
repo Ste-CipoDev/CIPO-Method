@@ -1,0 +1,7 @@
+# Windsurf Rules — CIPO.DEV
+
+All Cascade and AI agents must strictly adhere to the project standards defined in the repository:
+
+1. Consult `AGENTS.md` for workflow rules, orchestrator protocols, and memory handling.
+2. Apply the C.I.P.O. engineering standards defined in `_system/rules/cipo-dev.md`.
+3. Follow the CIPO.DEV method defined in `_system/rules/cipo-method.md`.

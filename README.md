@@ -145,7 +145,9 @@ Per azzerare la duplicazione delle regole tra editor diversi, mantieni i file or
   - *Linux/macOS:* `curl -fsSL https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/uninstall.sh | bash`
   - *Windows:* `irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/uninstall.ps1 | iex`
 
-> 💡 **Template di Governance pronti all'uso:** All'interno della cartella [`templates/`](templates/) di questo repository trovi i modelli conformi al Metodo CIPO.DEV da copiare nei tuoi progetti: [`PRD.md`](templates/PRD.md), [`STATUS.md`](templates/STATUS.md), [`MEMORY.md`](templates/MEMORY.md) e [`skills.json`](templates/skills.json) per l'isolamento locale.
+> 💡 **Template pronti all'uso:** All'interno della cartella [`templates/`](templates/) di questo repository trovi il kit completo pronto da copiare nei tuoi progetti:
+> - **Modelli di Governance:** [`PRD.md`](templates/PRD.md), [`STATUS.md`](templates/STATUS.md), [`MEMORY.md`](templates/MEMORY.md) e [`skills.json`](templates/skills.json) per l'isolamento locale delle skill.
+> - **Adapter per Agenti AI:** [`CLAUDE.md`](templates/CLAUDE.md), [`.cursorrules`](templates/.cursorrules), [`.windsurfrules`](templates/.windsurfrules), [`.aider.conf.yml`](templates/.aider.conf.yml) e [`EIGENT.md`](templates/EIGENT.md).
 
 #### B. Claude Code (`CLAUDE.md`)
 Crea o modifica il file `CLAUDE.md` nella root del repository:
