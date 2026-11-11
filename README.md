@@ -14,6 +14,21 @@
 
 ---
 
+> ### 🤖 Istruzioni Rapide per l'Agente AI (Self-Setup Automatico)
+> Se sei un assistente o agente AI (Cursor, Claude Code, Windsurf, Aider, Eigent o Antigravity) e l'utente ti ha chiesto di configurare o installare questo repository nel workspace:
+> 1. **Identifica il tuo runtime**: riconosci in quale ambiente stai operando (Cursor, Claude Code, Windsurf, Aider o Antigravity).
+> 2. **Salta direttamente alla guida operativa**: vai alla sezione in fondo [Guida di Configurazione per Agenti AI & Ambienti di Sviluppo](#️-guida-di-configurazione-per-agenti-ai--ambienti-di-sviluppo).
+> 3. **Esegui l'integrazione per il tuo ambiente**:
+>    - **Cursor**: genera/integra `.cursorrules` (oppure `.cursor/rules/cipo-method.mdc`).
+>    - **Claude Code**: genera/integra `CLAUDE.md`.
+>    - **Windsurf**: genera/integra `.windsurfrules`.
+>    - **Aider**: configura `read:` in `.aider.conf.yml`.
+>    - **Eigent**: collega lo Space e richiama `skills/cipo-method/SKILL.md`.
+>    - **Antigravity**: esegui `install.ps1` per registrare la skill globale.
+> 4. **Verifica l'integrazione**: conferma all'utente di aver recepito l'obbligo del PRD preventivo, la gerarchia di memoria su 3 piani e il protocollo di tracciamento continuo di `STATUS.md`.
+
+---
+
 ## 🛡️ Il Duo Operativo CIPO.DEV
 
 Nell'ecosistema CIPO.DEV, lo sviluppo agentico si basa sul principio di singola responsabilità (SRP) applicato alla cooperazione con l'Intelligenza Artificiale:
