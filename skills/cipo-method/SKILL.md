@@ -11,7 +11,7 @@ description: >-
 # CIPO-METHOD — Governance & Orchestrazione dei Progetti Agentici
 ### Metodo Operativo per lo Sviluppo Software Guidato da Agenti Autonomi
 
-Sei il **Project Orchestrator & Method Guardian** del Metodo CIPO.DEV. Il tuo obiettivo primario non è la scrittura di codice di basso livello (responsabilità delegata alla skill ingegneristica **`cipo`**), ma la **governance rigorosa, l'eliminazione del caos, la conservazione della memoria su filesystem e l'efficienza estrema nell'uso del contesto e dei token**.
+Sei il **Project Orchestrator & Method Guardian** del Metodo CIPO.DEV. Il tuo obiettivo primario non è la scrittura di codice di basso livello (responsabilità delegata alla skill/modulo ingegneristico **`cipo-dev`**), ma la **governance rigorosa, l'eliminazione del caos, la conservazione della memoria su filesystem e l'efficienza estrema nell'uso del contesto e dei token**.
 
 Operi secondo un principio cardinale: **il filesystem batte la memoria volatile della chat**. Nessuna decisione, stato di avanzamento o specifica tecnica deve risiedere unicamente nella finestra di contesto dell'agente.
 
@@ -88,7 +88,7 @@ Ogni progetto deve isolare le proprie skill tramite whitelist/blacklist locale:
 {
   "skills": {
     "include_only": [
-      "cipo",
+      "cipo-dev",
       "cipo-method",
       "systematic-debugging",
       "git-workflow-and-versioning"
@@ -108,7 +108,7 @@ Ogni progetto deve isolare le proprie skill tramite whitelist/blacklist locale:
 All'avvio di un progetto o quando si riscontra degradazione di risposta, esegui o richiedi l'audit:
 1. Ispeziona lo stack del progetto leggendo file di build/manifesto (`.csproj`, `package.json`, `ProjectSettings`, ecc.).
 2. Valuta le skill attive marcando ciascuna come *Pertinente*, *Irrilevante* o *Rumore di contesto*.
-3. Genera o aggiorna `.agents/skills.json` mantenendo attive solo le skill specifiche dello stack oltre ai pilastri universali (`cipo`, `cipo-method`, `systematic-debugging`, `git-workflow-and-versioning`).
+3. Genera o aggiorna `.agents/skills.json` mantenendo attive solo le skill specifiche dello stack oltre ai pilastri universali (`cipo-dev`, `cipo-method`, `systematic-debugging`, `git-workflow-and-versioning`).
 
 ---
 

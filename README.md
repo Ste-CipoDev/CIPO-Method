@@ -1,7 +1,7 @@
 # CIPO-METHOD — Governance & Orchestrazione dei Progetti Agentici
 ### Standard Operativo per lo Sviluppo Software con Agenti AI Autonomi
 
-[![Google Antigravity](https://img.shields.io/badge/Google-Antigravity%20Skill-4285F4?style=flat-square&logo=google&logoColor=white)](https://github.com/Ste-CipoDev/CIPO-Method)
+[![Multi-Agent Ready](https://img.shields.io/badge/AI%20Agents-Antigravity%20|%20Claude%20|%20Cursor%20|%20Windsurf%20|%20Aider%20|%20Eigent-7952B3?style=flat-square)](https://github.com/Ste-CipoDev/CIPO-Method)
 [![Role](https://img.shields.io/badge/Role-Project%20Orchestrator-7952B3?style=flat-square)](README.md)
 [![Scope](https://img.shields.io/badge/Scope-Governance%20%26%20Context-008C45?style=flat-square)](README.md)
 [![Licenza MIT](https://img.shields.io/badge/Licenza-MIT-blue.svg?style=flat-square)](LICENSE)
@@ -10,7 +10,7 @@
 
 > **"I token e la finestra di contesto della chat sono volatili ed effimeri. Il filesystem locale è eterno e deterministico."**
 
-`cipo-method` è la skill ufficiale per **Google Antigravity** e agenti AI di coding che codifica e automatizza il **Metodo CIPO.DEV**: un framework operativo di governance, memoria persistente su filesystem e gestione maniacale del contesto, progettato per eliminare allucinazioni, regressioni di codice e spreco di token durante lo sviluppo con agenti autonomi.
+`cipo-method` è il framework universale per **qualsiasi agente AI di coding** (Google Antigravity, Claude Code, Cursor, Windsurf, Aider, Eigent) che codifica e automatizza il **Metodo CIPO.DEV**: governance rigorosa, memoria persistente su filesystem e gestione maniacale del contesto, progettato per eliminare allucinazioni, regressioni di codice e spreco di token durante lo sviluppo con agenti autonomi.
 
 ---
 
@@ -18,14 +18,44 @@
 
 Nell'ecosistema CIPO.DEV, lo sviluppo agentico si basa sul principio di singola responsabilità (SRP) applicato alla cooperazione con l'Intelligenza Artificiale:
 
-| Ruolo Agente | Skill Custom | Compito Operativo |
+| Ruolo Agente | Modulo / Skill | Compito Operativo |
 |---|---|---|
 | **Senior Software Engineer** | [`cipo-dev`](https://github.com/Ste-CipoDev/CIPO-Dev) | **Come si scrive il codice (C.I.P.O.):** impone la Scala del Pragmatismo Operativo, YAGNI radicale, divieto di astrazioni premature (niente interfacce a implementazione singola o factory fittizie), transazioni atomiche ACID, tipi esatti (`decimal`) e commit rigorosamente in italiano. |
-| **Project Orchestrator** | **`cipo-method`** *(Questa skill)* | **Come si governa il progetto:** esige il PRD preventivo obbligatorio prima di qualsiasi codice, governa i 3 piani di memoria su filesystem, traccia in tempo reale `STATUS.md` e `MEMORY.md`, isola le chat e configura la dieta delle skill (`.agents/skills.json`) per abbattere i costi di contesto. |
+| **Project Orchestrator** | **`cipo-method`** *(Questo modulo)* | **Come si governa il progetto:** esige il PRD preventivo obbligatorio prima di qualsiasi codice, governa i 3 piani di memoria su filesystem, traccia in tempo reale `STATUS.md` e `MEMORY.md`, isola le chat e configura la dieta delle skill (`.agents/skills.json`) per abbattere i costi di contesto. |
 
 ---
 
-## 🚀 Installazione e Gestione del Ciclo di Vita
+## 🏛️ Architettura "Single Source of Truth" & File di Instradamento
+
+In un workspace multimodale, la configurazione raccomandata prevede **un'unica sorgente di verità** per la governance e le regole, referenziata da file leggeri di instradamento posti nella root del repository:
+
+```
+[Single Source of Truth: Workspace Root]
+   ├── AGENTS.md                   <-- Governance centrale & Ruolo di Orchestrator
+   └── _system/rules/
+          ├── cipo-dev.md          <-- Principi ingegneristici e scala C.I.P.O.
+          └── cipo-method.md       <-- Metodo CIPO.DEV (PRD, Memoria a 3 piani)
+          ▲
+          │ (puntamento diretto dai file di instradamento)
+   ───────┴─────────────────────────────────────────
+   ├── CLAUDE.md                   --> Istruzioni per Claude Code
+   ├── .cursorrules                --> Istruzioni per Cursor
+   ├── .windsurfrules              --> Istruzioni per Windsurf
+   ├── .aider.conf.yml             --> File in sola lettura per Aider
+   └── EIGENT.md                   --> Guida per lo Space Eigent
+```
+
+### Esempio di file di instradamento (`CLAUDE.md` / `.cursorrules` / `.windsurfrules`)
+```markdown
+Before taking any action, reading files or writing code, you MUST read and strictly adhere to:
+1. AGENTS.md
+2. _system/rules/cipo-dev.md
+3. _system/rules/cipo-method.md
+```
+
+---
+
+## 🚀 Installazione Globale per Google Antigravity (Skill)
 
 > **Prerequisiti**: È sufficiente disporre di **Google Antigravity** (o CLI `agy`) installato sul sistema e di una console PowerShell (Windows) o Bash (Linux/macOS).
 
