@@ -5,8 +5,6 @@
 [![Role](https://img.shields.io/badge/Role-Project%20Orchestrator-7952B3?style=flat-square)](README.md)
 [![Scope](https://img.shields.io/badge/Scope-Governance%20%26%20Context-008C45?style=flat-square)](README.md)
 [![Licenza MIT](https://img.shields.io/badge/Licenza-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Lingua Italiano](https://img.shields.io/badge/Lingua-Italiano-008C45?style=flat-square)](README.md)
-[![Commit Italiano](https://img.shields.io/badge/Commit-Italiano%20Only-CD212A?style=flat-square)](README.md)
 
 > **"I token e la finestra di contesto della chat sono volatili ed effimeri. Il filesystem locale è eterno e deterministico."**
 
