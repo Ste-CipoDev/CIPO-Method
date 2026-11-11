@@ -25,65 +25,6 @@ Nell'ecosistema CIPO.DEV, lo sviluppo agentico si basa sul principio di singola 
 
 ---
 
-## 🏛️ Architettura "Single Source of Truth" & File di Instradamento
-
-In un workspace multimodale, la configurazione raccomandata prevede **un'unica sorgente di verità** per la governance e le regole, referenziata da file leggeri di instradamento posti nella root del repository:
-
-```
-[Single Source of Truth: Workspace Root]
-   ├── AGENTS.md                   <-- Governance centrale & Ruolo di Orchestrator
-   └── _system/rules/
-          ├── cipo-dev.md          <-- Principi ingegneristici e scala C.I.P.O.
-          └── cipo-method.md       <-- Metodo CIPO.DEV (PRD, Memoria a 3 piani)
-          ▲
-          │ (puntamento diretto dai file di instradamento)
-   ───────┴─────────────────────────────────────────
-   ├── CLAUDE.md                   --> Istruzioni per Claude Code
-   ├── .cursorrules                --> Istruzioni per Cursor
-   ├── .windsurfrules              --> Istruzioni per Windsurf
-   ├── .aider.conf.yml             --> File in sola lettura per Aider
-   └── EIGENT.md                   --> Guida per lo Space Eigent
-```
-
-### Esempio di file di instradamento (`CLAUDE.md` / `.cursorrules` / `.windsurfrules`)
-```markdown
-Before taking any action, reading files or writing code, you MUST read and strictly adhere to:
-1. AGENTS.md
-2. _system/rules/cipo-dev.md
-3. _system/rules/cipo-method.md
-```
-
----
-
-## 🚀 Installazione Globale per Google Antigravity (Skill)
-
-> **Prerequisiti**: È sufficiente disporre di **Google Antigravity** (o CLI `agy`) installato sul sistema e di una console PowerShell (Windows) o Bash (Linux/macOS).
-
-### 1. Installazione Rapida (One-Liner PowerShell)
-Apri una finestra PowerShell ed esegui:
-```powershell
-irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/install.ps1 | iex
-```
-
-### 2. Installazione tramite Git Clone (Alternativa)
-```powershell
-git clone https://github.com/Ste-CipoDev/CIPO-Method.git "$HOME\.gemini\config\skills\cipo-method"
-```
-
-### 3. Aggiornamento all'Ultima Versione
-Per sincronizzare le ultime migliorie rilasciate sul repository:
-```powershell
-irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/update.ps1 | iex
-```
-
-### 4. Disinstallazione Completa
-Se desideri rimuovere CIPO-METHOD dal sistema senza lasciare tracce:
-```powershell
-irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/uninstall.ps1 | iex
-```
-
----
-
 ## 🏛️ I Pilastri del Metodo
 
 ### 1. PRD Preventivo Obbligatorio
@@ -114,7 +55,7 @@ Caricare globalmente decine di skill irrilevanti (es. Unity 3D in un ERP web, o 
 {
   "skills": {
     "include_only": [
-      "cipo",
+      "cipo-dev",
       "cipo-method",
       "systematic-debugging",
       "git-workflow-and-versioning"
@@ -141,6 +82,130 @@ Vietato il fixing a tentativi casuali o con patch speculative a valle:
 
 ### 8. Version Control (Git) Rigoroso
 Tutti i messaggi di commit sono rigorosamente scritti in **lingua italiana** seguendo lo standard Conventional Commits (`feat:`, `fix:`, `refactor:`, `docs:`, `chore:`).
+
+---
+
+## 🏛️ Guida di Configurazione per Agenti AI & Ambienti di Sviluppo
+
+Questa sezione è la guida formale per gli agenti AI e gli sviluppatori su come configurare, installare e referenziare **CIPO-METHOD (`cipo-method`)** sia in modalità autonoma sia in tandem integrato con **`cipo-dev`**.
+
+### 1. Architettura Consigliata: Single Source of Truth
+Per azzerare la duplicazione delle regole tra editor diversi, mantieni i file originali in una directory centrale di regole (es. `_system/rules/`) e posiziona nella root del workspace file di instradamento minimalisti che obbligano l'agente a leggerli.
+
+```
+[Single Source of Truth: Workspace Root]
+   ├── AGENTS.md                   <-- Governance centrale & Ruolo di Orchestrator
+   └── _system/rules/
+          ├── cipo-dev.md          <-- Principi ingegneristici e scala C.I.P.O.
+          └── cipo-method.md       <-- Metodo CIPO.DEV (PRD, Memoria a 3 piani)
+          ▲
+          │ (puntamento diretto dai file di instradamento)
+   ───────┴─────────────────────────────────────────
+   ├── CLAUDE.md                   --> Istruzioni per Claude Code
+   ├── .cursorrules                --> Istruzioni per Cursor
+   ├── .windsurfrules              --> Istruzioni per Windsurf
+   ├── .aider.conf.yml             --> File in sola lettura per Aider
+   └── EIGENT.md                   --> Guida per lo Space Eigent
+```
+
+---
+
+### 2. Configurazione per Ambiente (Modalità Singola: solo CIPO-Method)
+
+#### A. Google Antigravity (Skill Globale)
+- **Installazione automatica (One-Liner PowerShell Windows):**
+  ```powershell
+  irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/install.ps1 | iex
+  ```
+- **Installazione via Git Clone:**
+  ```powershell
+  git clone https://github.com/Ste-CipoDev/CIPO-Method.git "$HOME\.gemini\config\skills\cipo-method"
+  ```
+- **Aggiornamento:**
+  ```powershell
+  irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/update.ps1 | iex
+  ```
+- **Disinstallazione:**
+  ```powershell
+  irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/uninstall.ps1 | iex
+  ```
+
+#### B. Claude Code (`CLAUDE.md`)
+Crea o modifica il file `CLAUDE.md` nella root del repository:
+```markdown
+# Claude Code Guidelines
+
+Prima di iniziare qualsiasi task o scrivere codice:
+1. Leggi e applica rigorosamente le direttive di governance in `_system/rules/cipo-method.md`.
+2. PRD Obbligatorio Preventivo: nessuna riga di codice senza un PRD confermato o un task chiaro in STATUS.md.
+3. Rispetta la gerarchia di memoria su 3 piani: `_system/memory/` (generale), `PROGETTI/<nome>/MEMORY.md` (il perché), `PROGETTI/<nome>/STATUS.md` (il cosa).
+4. Aggiorna sempre STATUS.md e MEMORY.md prima di chiudere il turno.
+5. Scrivi tutti i messaggi di commit rigorosamente in lingua italiana con Conventional Commits.
+```
+
+#### C. Cursor (`.cursorrules` oppure `.cursor/rules/cipo-method.mdc`)
+Nella root del progetto, crea `.cursorrules`:
+```markdown
+You are guided by CIPO-METHOD (Project Orchestrator & Method Guardian).
+Before generating or editing code:
+1. Consult and adhere strictly to `_system/rules/cipo-method.md`.
+2. PRD First: never write code without an approved PRD or explicit task in STATUS.md.
+3. Maintain 3-tier memory: update STATUS.md and MEMORY.md on every change.
+4. Apply 4-phase systematic debugging: isolate root cause before fixing.
+5. All git commits must strictly be in Italian with Conventional Commits format.
+```
+
+#### D. Windsurf (`.windsurfrules`)
+Nella root del progetto, crea `.windsurfrules`:
+```markdown
+All Cascade and AI agents must strictly follow the governance standards in `_system/rules/cipo-method.md`:
+- Mandatory PRD before implementation.
+- 3-tier persistent filesystem memory.
+- Automatic status tracking in STATUS.md.
+- Commit messages strictly in Italian.
+```
+
+#### E. Aider (`.aider.conf.yml`)
+Crea `.aider.conf.yml` nella root del progetto per caricare le regole in sola lettura:
+```yaml
+# Aider configuration
+read:
+  - _system/rules/cipo-method.md
+
+commit-prompt: "All commit messages must be strictly in Italian following Conventional Commits format."
+```
+
+#### F. Eigent (Desktop Multi-Agent Space & Skills)
+- Collega il tuo repository come **Space** (`Homepage > Spaces`).
+- Crea un file `EIGENT.md` nella root che richiama `_system/rules/cipo-method.md`.
+- In alternativa, importa la skill `skills/cipo-method/SKILL.md` nella sezione **Homepage > Agents > Skills**.
+
+#### G. LLM Web / Custom Instructions (ChatGPT, Claude Projects)
+Incolla il testo di `skills/cipo-method/SKILL.md` all'interno delle **Project Instructions** o nel **System Prompt** dell'assistente.
+
+---
+
+### 3. Configurazione Integrata Tandem (`cipo-dev` + `cipo-method`)
+
+Quando utilizzi sia il motore ingegneristico di **C.I.P.O.** sia il framework di governance di **CIPO-Method**, la configurazione raccomandata nei file di instradamento in root diventa:
+
+#### File di Instradamento Unificato (`CLAUDE.md` / `.cursorrules` / `.windsurfrules`)
+```markdown
+Before taking any action, reading files or writing code, you MUST read and strictly adhere to:
+1. AGENTS.md (Central governance, 3-tier memory, orchestrator protocols)
+2. _system/rules/cipo-dev.md (Engineering standards, pragmatism ladder, ACID, zero over-engineering)
+3. _system/rules/cipo-method.md (PRD requirement, task tracking, 4-phase debugging, chat isolation)
+```
+
+#### Configurazione Aider Unificata (`.aider.conf.yml`)
+```yaml
+read:
+  - AGENTS.md
+  - _system/rules/cipo-dev.md
+  - _system/rules/cipo-method.md
+
+commit-prompt: "All commit messages must be strictly in Italian following Conventional Commits format."
+```
 
 ---
 
