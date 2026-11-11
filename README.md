@@ -55,31 +55,35 @@ Il contesto volatile della chat non è un archivio. La memoria vive sul filesyst
 - **Piano 2 — Memoria di Progetto (`PROGETTI/<progetto>/MEMORY.md`):** Il **PERCHÉ**. Log cronologico immutabile (`## AAAA-MM-GG: titolo`) con decisioni architetturali, vincoli scoperti e bug risolti alla radice. *Divieto assoluto di to-do list qui dentro.*
 - **Piano 3 — Stato di Progetto (`PROGETTI/<progetto>/STATUS.md`):** Il **COSA**. Fotografia istantanea dello stato attuale, fase corrente, riga singola del "Prossimo passo immediato", tabella dei task e blocchi. Si riscrive costantemente e si compatta sotto le 300 righe.
 
-### 3. Protocollo di Tracciamento Automatico ad Ogni Modifica
-Zero debito di contesto. L'agente aggiorna autonomamente `STATUS.md` e `MEMORY.md` contestualmente a ogni task completato, prima di chiudere il turno.
+### 3. Protocollo di Tracciamento Automatico ad Ogni Modifica & Gate di Verifica (DoD)
+Zero debito di contesto e zero assunzioni. L'agente aggiorna autonomamente `STATUS.md` e `MEMORY.md` contestualmente a ogni modifica.  
+**Regola DoD (Definition of Done):** È vietato marcare un task come `fatto` senza verifica deterministica (compilazione o test superato). Comando ed esito vanno esplicitati nelle note del task.
 
 ### 4. Isolamento Rigoroso delle Chat (Golden Rule)
 **Una chat per ogni singolo progetto.** Per evitare l'inquinamento cognitivo (*context drift*) e il degrado prestazionale degli LLM, le sessioni non si mescolano mai. In caso di cambio progetto, l'agente esegue il salvataggio automatico su disco e invita formalmente ad aprire una nuova chat pulita.
 
 ### 5. Dieta delle Skill per Singolo Progetto (`.agents/skills.json`)
-Caricare globalmente decine di skill irrilevanti (es. Unity 3D in un ERP web, o Supabase in un applicativo desktop .NET) spreca fino al 40% della finestra di contesto a ogni prompt. La skill configura l'isolamento locale di workspace:
+Caricare globalmente decine di skill irrilevanti (es. Unity 3D in un ERP web, o Supabase in un applicativo desktop .NET) spreca fino al 40% della finestra di contesto a ogni prompt. La skill configura l'isolamento locale conforme allo schema del runtime:
 
 ```json
 {
-  "skills": {
-    "include_only": [
-      "cipo-dev",
-      "cipo-method",
-      "systematic-debugging",
-      "git-workflow-and-versioning"
-    ],
-    "exclude": [
-      "unity-cli",
-      "ui-uitk",
-      "supabase",
-      "docx-management"
-    ]
-  }
+  "inherits": [
+    {
+      "path": "~/.gemini/config/skills",
+      "include_only": [
+        "cipo-dev",
+        "cipo-method",
+        "systematic-debugging",
+        "git-workflow-and-versioning"
+      ],
+      "exclude": [
+        "unity-*",
+        "ui-*",
+        "supabase*",
+        "docx-management"
+      ]
+    }
+  ]
 }
 ```
 

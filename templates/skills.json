@@ -1,17 +1,19 @@
 {
-  "skills": {
-    "include_only": [
-      "cipo-dev",
-      "cipo-method",
-      "systematic-debugging",
-      "git-workflow-and-versioning"
-    ],
-    "exclude": [
-      "unity-cli",
-      "ui-uitk",
-      "ui-ugui",
-      "supabase",
-      "docx-management"
-    ]
-  }
+  "inherits": [
+    {
+      "path": "~/.gemini/config/skills",
+      "include_only": [
+        "cipo-dev",
+        "cipo-method",
+        "systematic-debugging",
+        "git-workflow-and-versioning"
+      ],
+      "exclude": [
+        "unity-*",
+        "ui-*",
+        "supabase*",
+        "docx-management"
+      ]
+    }
+  ]
 }

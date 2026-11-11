@@ -59,9 +59,10 @@ Mai mescolare i piani di memoria. Ogni informazione ha una destinazione precisa 
 
 L'agente aggiorna la persistenza su disco **in piena autonomia e in tempo reale**:
 
-1. **Tracciamento dello Stato**: Ogni volta che completi un task o modifichi file di codice, **aggiorna contestualmente `STATUS.md`** del progetto (segna il task come completato, aggiorna la data odierna e ridefinisci la riga "Prossimo passo immediato"). È vietato chiudere un turno di lavoro senza questo allineamento.
+1. **Tracciamento dello Stato & Gate di Verifica (DoD)**: Ogni volta che completi un task o modifichi file di codice, **aggiorna contestualmente `STATUS.md`** del progetto (aggiorna la data odierna e ridefinisci la riga "Prossimo passo immediato").
+   - **Regola DoD (Definition of Done)**: È tassativamente vietato marcare un task come `fatto` senza averne eseguito e superato la verifica deterministica (compilazione `dotnet build` / `npm run build`, suite di test o linter). Riporta sempre il comando eseguito e l'esito nella colonna Note. Se la verifica fallisce o non è eseguibile, il task rimane `in corso` o passa a `bloccato`.
 2. **Tracciamento delle Decisioni**: Se durante lo sviluppo emerge un vincolo tecnico imprevisto, una decisione architetturale o la risoluzione alla radice di un problema, **registra immediatamente la voce datata in `MEMORY.md`**.
-3. **Compattazione preventiva**: Quando `STATUS.md` supera le 300 righe o accumula troppi task storici completati, archiviane il riassunto conciso in `MEMORY.md` e azzera i task chiusi per mantenere il file snello e ad alta densità informativa.
+3. **Compattazione Deterministica a Finestra Mobile**: Mantieni in `STATUS.md` solo i task attivi e un massimo di **5 task completati recentemente**. Quando si chiude un sesto task, riassumi i task completati precedenti in una voce aggregata di rilascio in `MEMORY.md` ed eliminali da `STATUS.md`, mantenendo il file sempre al di sotto delle 50 righe.
 
 ---
 
@@ -81,26 +82,28 @@ Per scongiurare il degrado delle performance dei modelli linguistici (*context p
 
 Per evitare che centinaia di righe di istruzioni irrilevanti (es. documentazione Unity in un progetto .NET, o Supabase in un progetto C# desktop) intasino la finestra di contesto:
 
-### Configurazione del Workspace Locale (`.agents/skills.json`)
-Ogni progetto deve isolare le proprie skill tramite whitelist/blacklist locale:
+### Configurazione Conforme del Workspace Locale (`.agents/skills.json`)
+Ogni progetto isola le proprie skill ereditando selettivamente da quelle globali con schema conforme al runtime:
 
 ```json
 {
-  "skills": {
-    "include_only": [
-      "cipo-dev",
-      "cipo-method",
-      "systematic-debugging",
-      "git-workflow-and-versioning"
-    ],
-    "exclude": [
-      "unity-cli",
-      "ui-uitk",
-      "ui-ugui",
-      "supabase",
-      "docx-management"
-    ]
-  }
+  "inherits": [
+    {
+      "path": "~/.gemini/config/skills",
+      "include_only": [
+        "cipo-dev",
+        "cipo-method",
+        "systematic-debugging",
+        "git-workflow-and-versioning"
+      ],
+      "exclude": [
+        "unity-*",
+        "ui-*",
+        "supabase*",
+        "docx-management"
+      ]
+    }
+  ]
 }
 ```
 
@@ -157,11 +160,22 @@ Vietato applicare fix a tentativi o inserire modifiche speculative. Quando si ma
 
 ---
 
-## Task Aperti
+## Task Attivi
 
-| # | Task | Stato | Priorità | Scadenza | Note |
+| # | Task | Stato | Priorità | Scadenza | Note (Comando / Vincolo / Path) |
 |---|---|---|---|---|---|
-| 1 | Titolo task | [todo / in corso / bloccato / fatto] | [alta / media / bassa] | AAAA-MM-GG | Contesto esatto, file coinvolti, comandi da lanciare |
+| 1 | Titolo task | in corso | alta | AAAA-MM-GG | src/Module/; verifica con: dotnet test |
+
+Stato: todo, in corso, bloccato. Priorità: alta, media, bassa.  
+> **Regola DoD:** Un task passa a `fatto` SOLO se verificato con compilazione o test superato. Se fallisce, resta `in corso` o `bloccato`.
+
+---
+
+## Ultimi Task Completati (Max 5 — I precedenti vanno distillati in MEMORY.md)
+
+| # | Task | Completato | Verifica Eseguita (DoD) |
+|---|---|---|---|
+| 0 | Setup iniziale e contratti | AAAA-MM-GG | `dotnet test` (ExitCode 0) |
 
 ---
 

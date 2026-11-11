@@ -1,0 +1,96 @@
+name: CI & Multi-Platform Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-metadata:
+    name: Schema & Script Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install YAML validation tool
+        run: pip install pyyaml
+
+      - name: Validate JSON Schemas
+        run: |
+          python3 -c "
+          import json, glob
+          for f in glob.glob('**/*.json', recursive=True):
+              with open(f, 'r', encoding='utf-8') as fp:
+                  json.load(fp)
+                  print(f'Valid JSON: {f}')
+          "
+
+      - name: Validate SKILL.md Frontmatter & YAML files
+        run: |
+          python3 -c "
+          import yaml, glob
+          for f in glob.glob('**/*.yml', recursive=True) + glob.glob('**/*.yaml', recursive=True):
+              with open(f, 'r', encoding='utf-8') as fp:
+                  yaml.safe_load(fp)
+                  print(f'Valid YAML: {f}')
+          "
+
+      - name: ShellCheck on Bash Scripts
+        uses: ludeeus/action-shellcheck@master
+        with:
+          ignore_paths: ".github"
+
+  test-install-linux:
+    name: Test Install (Ubuntu)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run install.sh
+        run: |
+          chmod +x install.sh
+          ./install.sh
+
+      - name: Verify installed skill file
+        run: |
+          test -f "$HOME/.gemini/config/skills/cipo-method/SKILL.md"
+          echo "Verified cipo-method installation on Linux"
+
+  test-install-windows:
+    name: Test Install (Windows)
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser
+          $results = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Error
+          if ($results) {
+              $results | Format-Table
+              throw "PSScriptAnalyzer ha rilevato errori negli script PowerShell"
+          }
+
+      - name: Run install.ps1
+        shell: pwsh
+        run: |
+          ./install.ps1
+
+      - name: Verify installed skill file
+        shell: pwsh
+        run: |
+          $path = "$env:USERPROFILE\.gemini\config\skills\cipo-method\SKILL.md"
+          if (-not (Test-Path $path)) {
+              throw "File SKILL.md non trovato in $path dopo install.ps1"
+          }
+          Write-Host "Verificata installazione cipo-method su Windows con successo!"
