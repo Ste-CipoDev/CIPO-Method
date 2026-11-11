@@ -1,4 +1,4 @@
-# CIPO-METHOD — Governance & Orchestrazione dei Progetti Agentici
+# CIPO-METHOD
 ### Standard Operativo per lo Sviluppo Software con Agenti AI Autonomi
 
 [![Multi-Agent Ready](https://img.shields.io/badge/AI%20Agents-Antigravity%20|%20Claude%20|%20Cursor%20|%20Windsurf%20|%20Aider%20|%20Eigent-7952B3?style=flat-square)](https://github.com/Ste-CipoDev/CIPO-Method)
