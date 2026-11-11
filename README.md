@@ -1,10 +1,12 @@
 # CIPO-METHOD — Governance & Orchestrazione dei Progetti Agentici
 ### Standard Operativo per lo Sviluppo Software con Agenti AI Autonomi
 
-[![Antigravity](https://img.shields.io/badge/Google_Antigravity-2.0-E50914?style=flat-square)](https://cipo.dev)
-[![Status](https://img.shields.io/badge/Status-Production--Ready-00C853?style=flat-square)](https://cipo.dev)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Author](https://img.shields.io/badge/Author-Stefano_Cipollitti_(cipo.dev)-white?style=flat-square)](https://cipo.dev)
+[![Google Antigravity](https://img.shields.io/badge/Google-Antigravity%20Skill-4285F4?style=flat-square&logo=google&logoColor=white)](https://github.com/Ste-CipoDev/CIPO-Method)
+[![Role](https://img.shields.io/badge/Role-Project%20Orchestrator-7952B3?style=flat-square)](README.md)
+[![Scope](https://img.shields.io/badge/Scope-Governance%20%26%20Context-008C45?style=flat-square)](README.md)
+[![Licenza MIT](https://img.shields.io/badge/Licenza-MIT-blue.svg?style=flat-square)](LICENSE)
+[![Lingua Italiano](https://img.shields.io/badge/Lingua-Italiano-008C45?style=flat-square)](README.md)
+[![Commit Italiano](https://img.shields.io/badge/Commit-Italiano%20Only-CD212A?style=flat-square)](README.md)
 
 > **"I token e la finestra di contesto della chat sono volatili ed effimeri. Il filesystem locale è eterno e deterministico."**
 
@@ -23,21 +25,32 @@ Nell'ecosistema CIPO.DEV, lo sviluppo agentico si basa sul principio di singola 
 
 ---
 
-## 🚀 Installazione Rapida
+## 🚀 Installazione e Gestione del Ciclo di Vita
 
-Per installare la skill nel tuo ambiente locale di **Google Antigravity** (o compatibili con `~/.gemini/config/skills/`):
+> **Prerequisiti**: È sufficiente disporre di **Google Antigravity** (o CLI `agy`) installato sul sistema e di una console PowerShell (Windows) o Bash (Linux/macOS).
 
-```bash
-git clone https://github.com/Ste-CipoDev/CIPO-Method.git ~/.gemini/config/skills/cipo-method
+### 1. Installazione Rapida (One-Liner PowerShell)
+Apri una finestra PowerShell ed esegui:
+```powershell
+irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/install.ps1 | iex
 ```
 
-Oppure in ambiente Windows (PowerShell):
-
+### 2. Installazione tramite Git Clone (Alternativa)
 ```powershell
 git clone https://github.com/Ste-CipoDev/CIPO-Method.git "$HOME\.gemini\config\skills\cipo-method"
 ```
 
-Una volta clonata, la skill viene rilevata automaticamente dall'agente all'avvio o quando vengono affrontate attività di governance, pianificazione, gestione memoria o avvio progetto.
+### 3. Aggiornamento all'Ultima Versione
+Per sincronizzare le ultime migliorie rilasciate sul repository:
+```powershell
+irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/update.ps1 | iex
+```
+
+### 4. Disinstallazione Completa
+Se desideri rimuovere CIPO-METHOD dal sistema senza lasciare tracce:
+```powershell
+irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/uninstall.ps1 | iex
+```
 
 ---
 
