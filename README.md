@@ -1,7 +1,7 @@
 # CIPO-METHOD
 ### Standard Operativo per lo Sviluppo Software con Agenti AI Autonomi
 
-[![Multi-Agent Ready](https://img.shields.io/badge/AI%20Agents-Antigravity%20|%20Claude%20|%20Cursor%20|%20Windsurf%20|%20Aider%20|%20Eigent-7952B3?style=flat-square)](https://github.com/Ste-CipoDev/CIPO-Method)
+[![Multi-Agent Ready](https://img.shields.io/badge/AI%20Agents-Antigravity%20|%20Claude%20|%20Cursor%20|%20Windsurf%20|%20Aider%20|%20Eigent-4285F4?style=flat-square)](https://github.com/Ste-CipoDev/CIPO-Method)
 [![Role](https://img.shields.io/badge/Role-Project%20Orchestrator-7952B3?style=flat-square)](README.md)
 [![Scope](https://img.shields.io/badge/Scope-Governance%20%26%20Context-008C45?style=flat-square)](README.md)
 [![Licenza MIT](https://img.shields.io/badge/Licenza-MIT-blue.svg?style=flat-square)](LICENSE)
