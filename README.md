@@ -18,7 +18,7 @@ Nell'ecosistema CIPO.DEV, lo sviluppo agentico si basa sul principio di singola 
 
 | Ruolo Agente | Skill Custom | Compito Operativo |
 |---|---|---|
-| **Senior Software Engineer** | [`cipo`](https://cipo.dev) | **Come si scrive il codice:** impone la Scala del Pragmatismo Operativo, YAGNI radicale, divieto di astrazioni premature (niente interfacce a implementazione singola o factory fittizie), transazioni atomiche ACID, tipi esatti (`decimal`) e commit rigorosamente in italiano. |
+| **Senior Software Engineer** | [`cipo-dev`](https://github.com/Ste-CipoDev/CIPO-Dev) | **Come si scrive il codice (C.I.P.O.):** impone la Scala del Pragmatismo Operativo, YAGNI radicale, divieto di astrazioni premature (niente interfacce a implementazione singola o factory fittizie), transazioni atomiche ACID, tipi esatti (`decimal`) e commit rigorosamente in italiano. |
 | **Project Orchestrator** | **`cipo-method`** *(Questa skill)* | **Come si governa il progetto:** esige il PRD preventivo obbligatorio prima di qualsiasi codice, governa i 3 piani di memoria su filesystem, traccia in tempo reale `STATUS.md` e `MEMORY.md`, isola le chat e configura la dieta delle skill (`.agents/skills.json`) per abbattere i costi di contesto. |
 
 ---
@@ -28,13 +28,13 @@ Nell'ecosistema CIPO.DEV, lo sviluppo agentico si basa sul principio di singola 
 Per installare la skill nel tuo ambiente locale di **Google Antigravity** (o compatibili con `~/.gemini/config/skills/`):
 
 ```bash
-git clone https://github.com/Ste-CipoDev/cipo-method.git ~/.gemini/config/skills/cipo-method
+git clone https://github.com/Ste-CipoDev/CIPO-Method.git ~/.gemini/config/skills/cipo-method
 ```
 
 Oppure in ambiente Windows (PowerShell):
 
 ```powershell
-git clone https://github.com/Ste-CipoDev/cipo-method.git "$HOME\.gemini\config\skills\cipo-method"
+git clone https://github.com/Ste-CipoDev/CIPO-Method.git "$HOME\.gemini\config\skills\cipo-method"
 ```
 
 Una volta clonata, la skill viene rilevata automaticamente dall'agente all'avvio o quando vengono affrontate attività di governance, pianificazione, gestione memoria o avvio progetto.
