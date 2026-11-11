@@ -125,23 +125,27 @@ Per azzerare la duplicazione delle regole tra editor diversi, mantieni i file or
 
 ### 2. Configurazione per Ambiente (Modalità Singola: solo CIPO-Method)
 
-#### A. Google Antigravity (Skill Globale)
-- **Installazione automatica (One-Liner PowerShell Windows):**
+#### A. Google Antigravity & Agent Environments (Linux, macOS & Windows)
+- **Installazione One-Liner (Linux & macOS / Bash):**
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/install.sh | bash
+  ```
+- **Installazione One-Liner (Windows / PowerShell):**
   ```powershell
   irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/install.ps1 | iex
   ```
 - **Installazione via Git Clone:**
   ```powershell
-  git clone https://github.com/Ste-CipoDev/CIPO-Method.git "$HOME\.gemini\config\skills\cipo-method"
+  git clone https://github.com/Ste-CipoDev/CIPO-Method.git "$HOME/.gemini/config/skills/cipo-method"
   ```
-- **Aggiornamento:**
-  ```powershell
-  irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/update.ps1 | iex
-  ```
+- **Aggiornamento all'ultima versione:**
+  - *Linux/macOS:* `curl -fsSL https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/update.sh | bash`
+  - *Windows:* `irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/update.ps1 | iex`
 - **Disinstallazione:**
-  ```powershell
-  irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/uninstall.ps1 | iex
-  ```
+  - *Linux/macOS:* `curl -fsSL https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/uninstall.sh | bash`
+  - *Windows:* `irm https://raw.githubusercontent.com/Ste-CipoDev/CIPO-Method/main/uninstall.ps1 | iex`
+
+> 💡 **Template di Governance pronti all'uso:** All'interno della cartella [`templates/`](templates/) di questo repository trovi i modelli conformi al Metodo CIPO.DEV da copiare nei tuoi progetti: [`PRD.md`](templates/PRD.md), [`STATUS.md`](templates/STATUS.md), [`MEMORY.md`](templates/MEMORY.md) e [`skills.json`](templates/skills.json) per l'isolamento locale.
 
 #### B. Claude Code (`CLAUDE.md`)
 Crea o modifica il file `CLAUDE.md` nella root del repository:
